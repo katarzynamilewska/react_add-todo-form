@@ -54,7 +54,7 @@ export const App = () => {
       return;
     }
 
-    const filteredTitle = title.replace(/[^a-zA-Z0-9 ]/g, '');
+    const filteredTitle = title.replace(/[^a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ0-9 ]/g, '');
 
     const newId = Math.max(...todos.map(todo => todo.id)) + 1;
     const selectedUser = users.find(user => user.id === userId)!;
