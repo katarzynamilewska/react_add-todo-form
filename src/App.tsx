@@ -50,9 +50,11 @@ export const App = () => {
       isValid = false;
     }
 
-    if (!isValid) return;
+    if (!isValid) {
+      return;
+    }
 
-    const filteredTitle = title.replace(/[^\w\s\d]/g, '');
+    const filteredTitle = title.replace(/[^a-zA-Z0-9 ]/g, '');
 
     const newId = Math.max(...todos.map(todo => todo.id)) + 1;
     const selectedUser = users.find(user => user.id === userId)!;
@@ -85,7 +87,9 @@ export const App = () => {
             value={title}
             onChange={e => {
               setTitle(e.target.value);
-              if (titleError) setTitleError('');
+              if (titleError) {
+                setTitleError('');
+              }
             }}
           />
           {titleError && <span className="error">{titleError}</span>}
@@ -97,7 +101,9 @@ export const App = () => {
             value={userId}
             onChange={e => {
               setUserId(Number(e.target.value));
-              if (userError) setUserError('');
+              if (userError) {
+                setUserError('');
+              }
             }}
           >
             <option value={0} disabled>
